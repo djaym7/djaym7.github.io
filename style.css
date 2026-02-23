@@ -1,0 +1,251 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text: #1a1a1a;
+    --text-secondary: #555;
+    --accent: #8b0000;
+    --border: #e0e0e0;
+    --tag-bg: #f0f0f0;
+    --tag-text: #333;
+    --nav-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+    --bg: #111;
+    --bg-secondary: #1a1a1a;
+    --text: #e0e0e0;
+    --text-secondary: #999;
+    --accent: #e07070;
+    --border: #333;
+    --tag-bg: #222;
+    --tag-text: #ccc;
+    --nav-bg: #111;
+}
+
+html { scroll-behavior: smooth; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== Top Nav ===== */
+.top-nav {
+    border-bottom: 1px solid var(--border);
+    background: var(--nav-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+}
+.nav-name:hover { text-decoration: none; }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { color: var(--text-secondary); font-size: 0.9rem; }
+.nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+/* ===== Theme Toggle ===== */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 4px 6px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+[data-theme="light"] .icon-moon { display: none; }
+[data-theme="dark"] .icon-sun { display: none; }
+
+/* ===== Two-Column Layout (weijiexu.com style) ===== */
+.page-layout {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 3rem;
+}
+
+/* ===== Sidebar ===== */
+.sidebar { position: sticky; top: 80px; align-self: start; }
+.profile-card { text-align: center; }
+.avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 3px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin: 0 auto 1rem;
+}
+.profile-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+.profile-title {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0.15rem;
+}
+.profile-affiliation {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+.profile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.profile-links a {
+    font-size: 0.85rem;
+    color: var(--accent);
+}
+
+/* ===== Main Content ===== */
+.section { margin-bottom: 2.5rem; }
+.section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--accent);
+    color: var(--text);
+}
+.subsection-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 1.25rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.section-note {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* ===== Bio ===== */
+.bio-text {
+    margin-bottom: 0.75rem;
+    color: var(--text);
+    line-height: 1.8;
+}
+
+/* ===== Tags ===== */
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 0.2rem 0.7rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* ===== News ===== */
+.news-list { list-style: none; }
+.news-list li {
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+}
+.news-list li:last-child { border-bottom: none; }
+.news-date {
+    font-weight: 600;
+    color: var(--text);
+    margin-right: 0.5rem;
+}
+
+/* ===== Publications ===== */
+.pub-list { list-style: none; }
+.pub-item {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+}
+.pub-item:last-child { border-bottom: none; }
+.pub-title { font-weight: 600; color: var(--text); }
+a.pub-title { color: var(--accent); }
+a.pub-title:hover { text-decoration: underline; }
+.pub-authors { font-size: 0.88rem; color: var(--text-secondary); }
+.pub-venue { font-size: 0.85rem; color: var(--text-secondary); font-style: italic; }
+
+/* ===== Service ===== */
+.service-text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ===== Experience & Education ===== */
+.exp-list { display: flex; flex-direction: column; gap: 0.6rem; }
+.exp-item { display: flex; gap: 1.5rem; align-items: baseline; }
+.exp-date {
+    min-width: 110px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+.exp-details { font-size: 0.95rem; }
+
+/* ===== Footer ===== */
+.footer {
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+}
+.footer p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .page-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem 1rem;
+    }
+    .sidebar { position: static; }
+    .exp-item { flex-direction: column; gap: 0.2rem; }
+    .exp-date { min-width: auto; }
+}
+
+@media (max-width: 480px) {
+    .nav-links { gap: 0.75rem; }
+    .nav-links a { font-size: 0.8rem; }
+}
+
+@media print {
+    .theme-toggle, .top-nav { display: none; }
+    .page-layout { grid-template-columns: 1fr; }
+}
